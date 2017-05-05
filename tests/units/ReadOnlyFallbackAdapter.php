@@ -55,18 +55,31 @@ class ReadOnlyFallbackAdapter extends \atoum\test
 				->mock($readOnlyAdapter)->receive('has')->withIdenticalArguments('/foo')->once;
 	}
 
-	public function testWrite()
+	public function testWriteAndWriteStream()
 	{
 		$readOnlyAdapter = $this->newMockInstance('\League\Flysystem\AdapterInterface');
 		$mainAdapter = $this->newMockInstance('\League\Flysystem\AdapterInterface');
+
 		$this->calling($mainAdapter)->write = true;
-		$this->calling($readOnlyAdapter)->write = true;
+		$this->calling($readOnlyAdapter)->write = false;
+
+		$this->calling($mainAdapter)->writeStream = true;
+		$this->calling($readOnlyAdapter)->writeStream = false;
 
 		$this
+			->assert('test write')
 			->given($this->newTestedInstance($mainAdapter, $readOnlyAdapter))
 			->then
-				->boolean($this->testedInstance->write('/foo', 'bar', new Config()))->isTrue
-					->mock($readOnlyAdapter)->wasNotCalled
-					->mock($mainAdapter)->receive('write')->withAtLeastArguments(['/foo', 'bar'])->once;
+			->boolean($this->testedInstance->write('/foo', 'bar', new Config()))->isTrue
+				->mock($readOnlyAdapter)->wasNotCalled
+				->mock($mainAdapter)->receive('write')->withAtLeastArguments(['/foo', 'bar'])->once;
+
+		$this
+			->assert('test write stream')
+			->given($this->newTestedInstance($mainAdapter, $readOnlyAdapter))
+			->then
+			->boolean($this->testedInstance->write('/foo', 'bar', new Config()))->isTrue
+				->mock($readOnlyAdapter)->wasNotCalled
+				->mock($mainAdapter)->receive('writeStream')->withAtLeastArguments(['/foo', 'bar'])->once;
 	}
 }

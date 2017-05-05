@@ -9,10 +9,11 @@ php:
 sudo: false
 
 before_script:
-  - composer.phar install --no-interaction --prefer-source
+  - rm composer.lock
+  - composer install --no-interaction # --prefer-source
 
 script:
-  - bin/atoum
+  - vendor/bin/atoum
 
 after_script:
   - travis_retry wget https://scrutinizer-ci.com/ocular.phar

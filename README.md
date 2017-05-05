@@ -1,5 +1,13 @@
 # Flysystem adapter with a fallback to a readonly adapter
 
+[![Author](http://img.shields.io/badge/author-@Grummfy-blue.svg?style=flat-square)](https://twitter.com/Grummfy)
+[![Build Status](https://img.shields.io/travis/BePark/flysystem-fallback-to-read-only-adapter/master.svg?style=flat-square)](https://travis-ci.org/BePark/flysystem-fallback-to-read-only-adapter)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/bePark/flysystem-fallback-to-read-only-adapter.svg?style=flat-square)](https://scrutinizer-ci.com/g/bePark/flysystem-fallback-to-read-only-adapter/code-structure)
+[![Coverage Status](https://coveralls.io/repos/github/BePark/flysystem-fallback-to-read-only-adapter/badge.svg?branch=master)](https://coveralls.io/github/BePark/flysystem-fallback-to-read-only-adapter?branch=master)
+[![Quality Score](https://img.shields.io/scrutinizer/g/thephpleague/flysystem-replicate-adapter.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/flysystem-replicate-adapter)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Packagist Version](https://img.shields.io/packagist/v/league/flysystem-replicate-adapter.svg?style=flat-square)](https://packagist.org/packages/league/flysystem-replicate-adapter)
+[![Total Downloads](https://img.shields.io/packagist/dt/bePark/flysystem-fallback-to-read-only-adapter.svg?style=flat-square)](https://packagist.org/packages/bePark/flysystem-fallback-to-read-only-adapter)
 
 ## Description
 
@@ -43,3 +51,10 @@ $adapter = new BePark\Flysystem\ReadOnlyFallback\ReadOnlyFallbackAdapter($doWhat
 
 * [Flysystem replica adapter](https://github.com/Litipk/flysystem-fallback-adapter)
 * [Flysystem fallback adapter](https://github.com/thephpleague/flysystem-replicate-adapter)
+
+## Run the test
+
+```bash
+composer install
+vendor/bin/atoum
+```
