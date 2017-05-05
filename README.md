@@ -39,7 +39,7 @@ $doWhateverYouWantAdapter = new League\Flysystem\Adapter\Local(...);
 $adapter = new BePark\Flysystem\ReadOnlyFallback\ReadOnlyFallbackAdapter($doWhateverYouWantAdapter, $nonTouchableAdapter);
 ```
 
-## Inspiration
+## Inspiration & similar adapters
 
-[https://github.com/Litipk/flysystem-fallback-adapter](Flysystem replica adapter)
-[https://github.com/thephpleague/flysystem-replicate-adapter](Flysystem fallback adapter)
+* [Flysystem replica adapter](https://github.com/Litipk/flysystem-fallback-adapter)
+* [Flysystem fallback adapter](https://github.com/thephpleague/flysystem-replicate-adapter)
