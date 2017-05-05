@@ -25,5 +25,10 @@
             "BePark\\Flysystem\\ReadOnlyFallback\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require-dev": {
+        "atoum/atoum": "^3.0",
+        "atoum/stubs": "^2.5",
+	    "atoum/reports-extension": "dev-master"
+    }
 }

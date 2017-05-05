@@ -12,23 +12,30 @@ checks:
         fix_linefeed: true
         fix_line_ending: true
         fix_doc_comments: true
+
+coding_style:
+    php:
+        indentation:
+            general:
+                use_tabs: true
+
 tools:
     external_code_coverage:
         timeout: 600
-        runs: 3
+        runs: 4 # merge for all php versions
     php_analyzer: true
     php_mess_detector: true
     php_pdepend: true
     php_cpd:
         enabled: true
-        excluded_dirs: [vendor]
+        excluded_dirs: ['vendor']
     php_hhvm: true
     php_cs_fixer:
-        config: { level: psr2 }
+        config: { level: psr1 }
     sensiolabs_security_checker: true
     php_loc:
         enabled: true
-        excluded_dirs: [vendor]
+        excluded_dirs: ['vendor']
     php_code_sniffer:
         config:
             standard: PSR2
