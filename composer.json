@@ -2,6 +2,9 @@
     "name": "bepark/flysystem-fallback-to-read-only-adapter",
     "description": "Flystem adapter with a fallback to a read only flystem adapter",
     "type": "library",
+	"keywords": [
+		"filesystem", "filesystems", "files", "storage", "abstraction", "file systems", "cloud", "flysystem-adapter"
+	],
     "require": {
 	  	"php": ">=5.4.0",
         "league/flysystem": "~1.0"
