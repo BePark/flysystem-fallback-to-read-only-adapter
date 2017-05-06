@@ -192,13 +192,13 @@ class ReadOnlyFallbackAdapter implements AdapterInterface
 		$inverseRef = [];
 		foreach ($tmpResult as $index => $mainContent)
 		{
-			$inverseRef[ $mainContent[ 'path' ] ] = $index;
+			$inverseRef[$mainContent['path']] = $index;
 		}
 
 		$fallbackContents = $this->_readOnlyAdapter->listContents($directory, $recursive);
 		foreach ($fallbackContents as $fallbackContent)
 		{
-			if (!isset($inverseRef[ $fallbackContent[ 'path' ] ]))
+			if (!isset($inverseRef[$fallbackContent['path']]))
 			{
 				$tmpResult[] = $fallbackContent;
 			}

@@ -38,7 +38,7 @@ class ReadOnlyFallbackAdapter extends \atoum\test
 		$this
 			->assert('test path existence on mainAdapter')
 			->given($this->calling($mainAdapter)->has = true,
-			        $this->calling($readOnlyAdapter)->has = false)
+					$this->calling($readOnlyAdapter)->has = false)
 			->then
 				->boolean($this->testedInstance->has('/foo'))->isTrue
 				->mock($mainAdapter)->receive('has')->withIdenticalArguments('/foo')->once
@@ -48,7 +48,7 @@ class ReadOnlyFallbackAdapter extends \atoum\test
 		$this
 			->assert('test none existing path')
 			->given($this->calling($mainAdapter)->has = false,
-			        $this->calling($readOnlyAdapter)->has = false)
+					$this->calling($readOnlyAdapter)->has = false)
 			->then
 				->boolean($this->testedInstance->has('/foo'))->isFalse
 				->mock($mainAdapter)->receive('has')->withIdenticalArguments('/foo')->once
