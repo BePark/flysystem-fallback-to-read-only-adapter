@@ -16,6 +16,11 @@ $script->enableBranchAndPathCoverage();
 // path to unit tests
 $runner->addTestsFromDirectory(__DIR__ . '/tests/units');
 
+if (in_array(getenv('TRAVIS_PHP_VERSION'), ['7.1', 'nightly'])) // temporary disable code coverage because of xdebug failure
+{
+	$script->noCodeCoverage();
+}
+
 //
 // Reports
 //

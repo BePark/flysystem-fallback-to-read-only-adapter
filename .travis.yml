@@ -6,16 +6,9 @@ php:
   - 7.1
   - nightly
 
-env:
-  global:
-    - ARGS=''
-
-matrix:
-  include:
-  - php: 7.1
-    env: ARGS=-ncc
-  - php: nightly
-    env: ARGS=-ncc
+cache:
+  directories:
+    - vendor
 
 sudo: false
 
@@ -24,7 +17,7 @@ before_script:
   - composer install --no-interaction # --prefer-source
 
 script:
-  - vendor/bin/atoum $ARGS
+  - vendor/bin/atoum
 
 after_script:
   - travis_retry wget https://scrutinizer-ci.com/ocular.phar
