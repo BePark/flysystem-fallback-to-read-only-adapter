@@ -78,7 +78,7 @@ class ReadOnlyFallbackAdapter extends \atoum\test
 			->assert('test write stream')
 			->given($this->newTestedInstance($mainAdapter, $readOnlyAdapter))
 			->then
-			->boolean($this->testedInstance->write('/foo', 'bar', new Config()))->isTrue
+			->boolean($this->testedInstance->writeStream('/foo', 'bar', new Config()))->isTrue
 				->mock($readOnlyAdapter)->wasNotCalled
 				->mock($mainAdapter)->receive('writeStream')->withAtLeastArguments(['/foo', 'bar'])->once;
 	}
