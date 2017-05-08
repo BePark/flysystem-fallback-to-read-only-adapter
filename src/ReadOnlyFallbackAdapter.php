@@ -292,7 +292,7 @@ class ReadOnlyFallbackAdapter implements AdapterInterface
 
 		// because we change something we need to be sure to have it on the main adapter before anything
 		$buffer = $this->_readOnlyAdapter->readStream($path);
-		if ($buffer === $buffer)
+		if (false === $buffer)
 		{
 			return false;
 		}
