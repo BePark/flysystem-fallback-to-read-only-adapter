@@ -155,11 +155,11 @@ class ReadOnlyFallbackAdapter implements AdapterInterface
 	 */
 	public function read($path)
 	{
-		$result = $this->_mainAdapter->read($path);
-		if (false !== $result)
+		if ($this->_mainAdapter->has($path))
 		{
-			return $result;
+		    return $this->_mainAdapter->read($path);
 		}
+
 
 		return $this->_readOnlyAdapter->read($path);
 	}
@@ -169,10 +169,9 @@ class ReadOnlyFallbackAdapter implements AdapterInterface
 	 */
 	public function readStream($path)
 	{
-		$result = $this->_mainAdapter->readStream($path);
-		if (false !== $result)
+		if ($this->_mainAdapter->has($path))
 		{
-			return $result;
+		    return $this->_mainAdapter->readStream($path);
 		}
 
 		return $this->_readOnlyAdapter->readStream($path);
@@ -212,10 +211,9 @@ class ReadOnlyFallbackAdapter implements AdapterInterface
 	 */
 	public function getMetadata($path)
 	{
-		$result = $this->_mainAdapter->getMetadata($path);
-		if (false !== $result)
+		if ($this->_mainAdapter->has($path))
 		{
-			return $result;
+		    return $this->_mainAdapter->getMetadata($path);
 		}
 
 		return $this->_readOnlyAdapter->getMetadata($path);
@@ -226,10 +224,9 @@ class ReadOnlyFallbackAdapter implements AdapterInterface
 	 */
 	public function getSize($path)
 	{
-		$result = $this->_mainAdapter->getSize($path);
-		if (false !== $result)
+        if ($this->_mainAdapter->has($path))
 		{
-			return $result;
+		    return $this->_mainAdapter->getSize($path);
 		}
 
 		return $this->_readOnlyAdapter->getSize($path);
@@ -240,10 +237,9 @@ class ReadOnlyFallbackAdapter implements AdapterInterface
 	 */
 	public function getMimetype($path)
 	{
-		$result = $this->_mainAdapter->getMimetype($path);
-		if (false !== $result)
+		if ($this->_mainAdapter->has($path))
 		{
-			return $result;
+		    return $this->_mainAdapter->getMimetype($path);
 		}
 
 		return $this->_readOnlyAdapter->getMimetype($path);
@@ -254,10 +250,9 @@ class ReadOnlyFallbackAdapter implements AdapterInterface
 	 */
 	public function getTimestamp($path)
 	{
-		$result = $this->_mainAdapter->getTimestamp($path);
-		if (false !== $result)
+		if ($this->_mainAdapter->has($path))
 		{
-			return $result;
+		    return $this->_mainAdapter->getTimestamp($path);
 		}
 
 		return $this->_readOnlyAdapter->getTimestamp($path);
@@ -268,10 +263,9 @@ class ReadOnlyFallbackAdapter implements AdapterInterface
 	 */
 	public function getVisibility($path)
 	{
-		$result = $this->_mainAdapter->getVisibility($path);
-		if (false !== $result)
+		if ($this->_mainAdapter->has($path))
 		{
-			return $result;
+		    return $this->_mainAdapter->getVisibility($path);
 		}
 
 		return $this->_readOnlyAdapter->getVisibility($path);
@@ -297,7 +291,7 @@ class ReadOnlyFallbackAdapter implements AdapterInterface
 			return false;
 		}
 
-		$result = $this->_mainAdapter->writeStream($path, $buffer['stream'], new Config());
+		return $this->_mainAdapter->writeStream($path, $buffer['stream'], new Config());
 		if (is_resource($buffer['stream']))
 		{
 			fclose($buffer['stream']);
